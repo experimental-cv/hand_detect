@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.5)
+cmake_policy(SET CMP0012 NEW)
+project(main)
+find_package(OpenCV 4.0.0 REQUIRED)
+message("OpenCV version: ${OpenCV_VERSION}")
+include_directories(${OpenCV_INCLUDE_DIRS})
+link_directories(${OpenCV_LIB_DIR})
+#set(SRC main.cpp)
+add_executable(single_frame single_frame.cpp)
+target_link_libraries(single_frame ${OpenCV_LIBS})
+
+add_executable(motion motion.cpp)
+target_link_libraries(motion ${OpenCV_LIBS})
